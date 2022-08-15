@@ -1,82 +1,5 @@
 # Consume a Northwind Microsoft database from Azure
 
-## FUNCTION CODE (From anonymous Function) connect to AAD if you feel so
-
-## SharePoint Framework 1.15.2
-
-### Go and create a database in Azure
-https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
-
-### Create your first Function
-https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal
-
-```c#
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-
-namespace FunctionAppNW
-{
-    public static class ProcessCustomers
-    {
-        [FunctionName("GetCustomers")]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "customer")] HttpRequest req, ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
-            List<Customers> customersList = new List<Customers>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable("SqlConnectionString")))
-                {
-                    connection.Open();
-                    var query = @"Select * from Customers";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    var reader = await command.ExecuteReaderAsync();
-
-                    while (reader.Read())
-                    {
-                        Customers customer = new Customers()
-                        {
-                            CustomerID = reader["CustomerID"].ToString(),
-                            CompanyName = reader["CompanyName"].ToString(),
-                            ContactName = reader["ContactName"].ToString(),
-                            ContactTitle = reader["ContactTitle"].ToString(),
-                            Address = reader["Address"].ToString(),
-                            City = reader["City"].ToString(),
-                            PostalCode = reader["PostalCode"].ToString(),
-                            Region = reader["Region"].ToString(),
-
-                        };
-                        customersList.Add(customer);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.ToString());
-            }
-            if (customersList.Count > 0)
-            {
-                return new OkObjectResult(customersList);
-            }
-            else
-            {
-                return new NotFoundResult();
-            }
-
-        }
-    }
-}
-
-```
-
 ## Summary
 
 Short summary on functionality and used technologies.
@@ -148,3 +71,84 @@ This extension illustrates the following concepts:
 - [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
 - [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+
+## FUNCTION CODE (From anonymous Function) connect to AAD if you feel so
+
+## SharePoint Framework 1.15.2
+
+### Go and create a database in Azure
+https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
+
+### Create your first Function
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal
+
+### CODE
+
+```c#
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+
+namespace FunctionAppNW
+{
+    public static class ProcessCustomers
+    {
+        [FunctionName("GetCustomers")]
+        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "customer")] HttpRequest req, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+
+            List<Customers> customersList = new List<Customers>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable("SqlConnectionString")))
+                {
+                    connection.Open();
+                    var query = @"Select * from Customers";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    var reader = await command.ExecuteReaderAsync();
+
+                    while (reader.Read())
+                    {
+                        Customers customer = new Customers()
+                        {
+                            CustomerID = reader["CustomerID"].ToString(),
+                            CompanyName = reader["CompanyName"].ToString(),
+                            ContactName = reader["ContactName"].ToString(),
+                            ContactTitle = reader["ContactTitle"].ToString(),
+                            Address = reader["Address"].ToString(),
+                            City = reader["City"].ToString(),
+                            PostalCode = reader["PostalCode"].ToString(),
+                            Region = reader["Region"].ToString(),
+
+                        };
+                        customersList.Add(customer);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                log.LogError(e.ToString());
+            }
+            if (customersList.Count > 0)
+            {
+                return new OkObjectResult(customersList);
+            }
+            else
+            {
+                return new NotFoundResult();
+            }
+
+        }
+    }
+}
+
+```
+
+![Here](https://github.com/jtlivio/react-azurefunction-northwind/blob/master/FAPP.png)
