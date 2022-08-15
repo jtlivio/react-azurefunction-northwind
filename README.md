@@ -4,6 +4,12 @@
 
 ## SharePoint Framework 1.15.2
 
+### Go to create a database
+https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
+
+### Create your first Function
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal
+
 ```c#
 using System;
 using System.Threading.Tasks;
@@ -127,9 +133,9 @@ Description of the extension that expands upon high-level summary above.
 
 This extension illustrates the following concepts:
 
-- topic 1
-- topic 2
-- topic 3
+- Consume a Function app from SQL Server
+- No Authentication is active, only the url code for the Function, must change
+- Uses react controls (Listview)
 
 > Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
