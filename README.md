@@ -1,5 +1,7 @@
 # react-azurefunction-sql
 
+From northwind database
+
 ## Summary
 
 Short summary on functionality and used technologies.
