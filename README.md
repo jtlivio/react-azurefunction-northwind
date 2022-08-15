@@ -2,13 +2,14 @@
 
 ## Summary
 
-Short summary on functionality and used technologies.
+This Webpart consume an anonymous Function App from an HTTP Triger using the templates from the Northwind Microsoft DBs
+You must create a database in azure and run the scripts
 
-[picture of the solution in action, if possible]
+![Here](https://github.com/jtlivio/react-azurefunction-northwind/blob/master/FAPP.png)
 
 ## Used SharePoint Framework Version
 
-![version](https://img.shields.io/badge/version-1.13-green.svg)
+![version](https://img.shields.io/badge/version-1.15.2-green.svg)
 
 ## Applies to
 
@@ -150,5 +151,3 @@ namespace FunctionAppNW
 }
 
 ```
-
-![Here](https://github.com/jtlivio/react-azurefunction-northwind/blob/master/FAPP.png)
