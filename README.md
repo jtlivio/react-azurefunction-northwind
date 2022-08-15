@@ -59,7 +59,7 @@ This extension illustrates the following concepts:
 
 - Consume a Function app from SQL Server
 - No Authentication is active, only the url code for the Function, must change
-- Uses react controls (Listview)
+- Uses react controls (Listview) - https://pnp.github.io/sp-dev-fx-controls-react/
 
 > Notice that better pictures and documentation will increase the sample usage and the value you are providing for others. Thanks for your submissions advance.
 
