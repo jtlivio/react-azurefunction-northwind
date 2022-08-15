@@ -4,7 +4,7 @@
 
 ## SharePoint Framework 1.15.2
 
-### Go to create a database
+### Go and create a database in Azure
 https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
 
 ### Create your first Function
