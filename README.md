@@ -1,6 +1,8 @@
 # Consume a Northwind Microsoft database from Azure
 
-FUNCTION CODE
+## FUNCTION CODE (From anonymous Function) connect to AAD if you feel so
+
+## SharePoint Framework 15.2
 
 ```c#
 using System;
