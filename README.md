@@ -1,4 +1,4 @@
-# Consume a Northwind Microsoft database from Azure
+# Consume Northwind Microsoft database from Azure using a Function App 
 
 ## Summary
 
