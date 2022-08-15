@@ -2,7 +2,7 @@
 
 ## FUNCTION CODE (From anonymous Function) connect to AAD if you feel so
 
-## SharePoint Framework 15.2
+## SharePoint Framework 1.15.2
 
 ```c#
 using System;
