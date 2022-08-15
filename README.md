@@ -1,4 +1,4 @@
-# Consume Northwind Microsoft database from Azure using a Function App 
+# SPFX Consume Northwind Microsoft database from Azure using a Function App 
 
 ## Summary
 
