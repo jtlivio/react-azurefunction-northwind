@@ -2,7 +2,7 @@
 
 FUNCTION CODE
 
-```
+```c#
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
