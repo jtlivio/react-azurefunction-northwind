@@ -26,14 +26,13 @@ You must create a database in azure and run the scripts
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Joao Livio @jlivio |
+| react-azurefunction-northwind | Joao Livio @jlivio |
 
 ## Version history
 
 | Version | Date             | Comments        |
 | ------- | ---------------- | --------------- |
-| 1.1     | March 10, 2021   | Update comment  |
-| 1.0     | January 29, 2021 | Initial release |
+| 1.0     | August 15, 2022 | Initial release |
 
 ## Disclaimer
 
