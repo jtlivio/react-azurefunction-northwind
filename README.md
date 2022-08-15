@@ -26,7 +26,7 @@ You must create a database in azure and run the scripts
 
 | Solution    | Author(s)                                               |
 | ----------- | ------------------------------------------------------- |
-| folder name | Author details (name, company, twitter alias with link) |
+| folder name | Joao Livio @jlivio |
 
 ## Version history
 
