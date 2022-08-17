@@ -46,9 +46,8 @@ You must create a database in azure and run the scripts
 - Ensure that you are at the solution folder
 - in the command-line run:
   - **npm install**
-  - **gulp serve**
-
-> Include any additional steps as needed.
+  - **gulp clean**
+  - **gulp build serve**
 
 ## Features
 
