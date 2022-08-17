@@ -17,9 +17,6 @@ namespace FunctionAppNW
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
             
-            
-            ///Model
-
             public class Customers
             {
                 public string CustomerID { get; set; }
@@ -34,6 +31,7 @@ namespace FunctionAppNW
             }
 
             List<Customers> customersList = new List<Customers>();
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable("SqlConnectionString")))
