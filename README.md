@@ -53,7 +53,7 @@ You must create a database in azure and run the scripts
 
 - Consume a Function app from SQL Server
 - No Authentication is active, only the url code for the Function, must change
-- Uses react controls (Listview) - https://pnp.github.io/sp-dev-fx-controls-react/
+- [Uses react controls (Listview)](https://pnp.github.io/sp-dev-fx-controls-react/)
 
 ## References
 
@@ -61,88 +61,25 @@ You must create a database in azure and run the scripts
 - [Create your first Function](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
 
+## Function Code
 
-### CODE
+- [Code for your Function](https://github.com/jtlivio/react-azurefunction-northwind/blob/master/FunctionCode.cs)
 
-```c#
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+## Suggestion
 
-namespace FunctionAppNW
-{
-    public static class ProcessCustomers
-    {
-        [FunctionName("GetCustomers")]
-        public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "get", Route = "customer")] HttpRequest req, ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+- Use a Serveless Database
+- Use a Pay as You Go Model in your function
+- Choose Linux as your App Service, "can" save some money
+- In Production use Key Vault for your Connection String
 
-            List<Customers> customersList = new List<Customers>();
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(Environment.GetEnvironmentVariable("SqlConnectionString")))
-                {
-                    connection.Open();
-                    var query = @"Select * from Customers";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    var reader = await command.ExecuteReaderAsync();
+## Secure your Function with AAD
+- [Securing Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts?tabs=v4)
+- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad)
 
-                    while (reader.Read())
-                    {
-                        Customers customer = new Customers()
-                        {
-                            CustomerID = reader["CustomerID"].ToString(),
-                            CompanyName = reader["CompanyName"].ToString(),
-                            ContactName = reader["ContactName"].ToString(),
-                            ContactTitle = reader["ContactTitle"].ToString(),
-                            Address = reader["Address"].ToString(),
-                            City = reader["City"].ToString(),
-                            PostalCode = reader["PostalCode"].ToString(),
-                            Region = reader["Region"].ToString(),
+## aadHttpClientFactory
 
-                        };
-                        customersList.Add(customer);
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                log.LogError(e.ToString());
-            }
-            if (customersList.Count > 0)
-            {
-                return new OkObjectResult(customersList);
-            }
-            else
-            {
-                return new NotFoundResult();
-            }
+- [Connect to Azure AD applications using the AadHttpClient](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient)
 
-        }
-    }
-}
 
-///Model
 
-public class Customers
-    {
-        public string CustomerID { get; set; }
-        public string CompanyName { get; set; }
-        public string ContactName { get; set; }
-        public string ContactTitle { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Region { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
 
-    }
-
-```
