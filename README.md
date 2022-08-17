@@ -18,10 +18,6 @@ You must create a database in azure and run the scripts
 
 > Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
 
-## Prerequisites
-
-> Any special pre-requisites?
-
 ## Solution
 
 | Solution    | Author(s)                                               |
