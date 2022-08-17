@@ -16,7 +16,7 @@ export default class ReactAzureFunctionSql extends React.Component<IReactAzureFu
     };
   }
 
-  // TODO: for production use, you should consider how to handle storage of this URL and auth code..
+  // TODO: for production use a auth code..
   protected functionUrl: string = "https://{Your Function Name}.azurewebsites.net/api/customer?code={ Your Code ...}";
 
 
