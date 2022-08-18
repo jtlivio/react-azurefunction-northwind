@@ -55,7 +55,7 @@ You must create a database in azure and run the scripts
 
 - [Go and create a database in Azure](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs)
 - [Create your first Function](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
-- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
+- [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp)
 
 ## Function Code
 
